@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, SettingsViewControllerDelegate {
+class ViewController: CalculatorScreenViewController, SettingsViewControllerDelegate {
 
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
@@ -22,6 +22,11 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         super.viewDidLoad()
         toField.delegate = self
         fromField.delegate = self
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
     }
 
     override func didReceiveMemoryWarning() {
@@ -144,6 +149,12 @@ extension ViewController : UITextFieldDelegate {
         } else {
             toField.text = ""
         }
+    }
+}
+
+extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle{
+        return topViewController?.preferredStatusBarStyle ?? .default
     }
 }
 

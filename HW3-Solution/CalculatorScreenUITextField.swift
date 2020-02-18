@@ -11,6 +11,9 @@ import UIKit
 class CalculatorScreenUITextField: DecimalMinusTextField {
 
     override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        
         self.tintColor = FOREGROUND_COLOR
         self.layer.borderWidth = 1.0
         self.layer.borderColor = FOREGROUND_COLOR.cgColor

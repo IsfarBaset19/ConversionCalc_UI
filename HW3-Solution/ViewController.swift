@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: CalculatorScreenViewController, SettingsViewControllerDelegate {
-
+class ViewController: CalculatorScreenViewController, SettingsViewControllerDelegate, HistoryTableViewControllerDelegate {
+    
+  
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
     @IBOutlet weak var fromUnits: UILabel!
@@ -17,6 +18,11 @@ class ViewController: CalculatorScreenViewController, SettingsViewControllerDele
     @IBOutlet weak var calculatorHeader: UILabel!
     
     var currentMode : CalculatorMode = .Length
+    
+    var entries : [Conversion] = [Conversion(fromVal: 1, toVal: 1760, mode: .Length, fromUnits: LengthUnit.Miles.rawValue, toUnits:
+        LengthUnit.Yards.rawValue, timestamp: Date.distantPast),
+    Conversion(fromVal: 1, toVal: 4, mode: .Volume, fromUnits: VolumeUnit.Gallons.rawValue, toUnits:
+        VolumeUnit.Quarts.rawValue, timestamp: Date.distantFuture)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,16 @@ class ViewController: CalculatorScreenViewController, SettingsViewControllerDele
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
+    
+    func selectEntry(entry: Conversion) {
+        
+        self.currentMode = entry.mode
+        self.fromField.text = "\(entry.fromVal)"
+        self.fromUnits.text = entry.fromUnits
+        self.toField.text = "\(entry.toVal)"
+        self.toUnits.text = entry.toUnits
+          
+      }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,6 +88,11 @@ class ViewController: CalculatorScreenViewController, SettingsViewControllerDele
                     let toVal = fromVal * lengthConversionTable[convKey]!;
                     dest?.text = "\(toVal)"
                 }
+                
+                let convert = Conversion(fromVal: Double(self.fromField.text!)!, toVal: Double(toField.text!)!, mode: currentMode, fromUnits: fUnits.rawValue, toUnits: tUnits.rawValue, timestamp: Date())
+                
+                entries.append(convert)
+                
             case .Volume:
                 var fUnits, tUnits : VolumeUnit
                 if dest == toField {
@@ -86,6 +107,11 @@ class ViewController: CalculatorScreenViewController, SettingsViewControllerDele
                     let toVal = fromVal * volumeConversionTable[convKey]!;
                     dest?.text = "\(toVal)"
                 }
+                
+                let convert = Conversion(fromVal: Double(self.fromField.text!)!, toVal: Double(toField.text!)!, mode: currentMode, fromUnits: fUnits.rawValue, toUnits: tUnits.rawValue, timestamp: Date())
+                
+                entries.append(convert)
+                
             }
         }
         self.view.endEditing(true)
@@ -118,21 +144,35 @@ class ViewController: CalculatorScreenViewController, SettingsViewControllerDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "settingsSegue" {
-            clearPressed(sender as! UIButton)
-            if let  target = segue.destination.children[0] as? SettingsViewController {
-                target.mode = currentMode
-                target.fUnits = fromUnits.text
-                target.tUnits = toUnits.text
-                target.delegate = self
+        if let dest = segue.destination as? SettingsViewController {
+            
+            //initializing variables in SettingsViewController
+            if segue.identifier == "settingsSegue" {
+                
+                dest.mode = currentMode
+                dest.fUnits = fromUnits.text
+                dest.tUnits = toUnits.text
+                dest.delegate = self
+                
+            }
+        }
+        
+        if let dest = segue.destination as? HistoryTableViewController {
+            if segue.identifier == "historySegue" {
+                dest.historyDelegate = self
+                dest.entries = self.entries
+                //dest.mode = self.mode
             }
         }
     }
+    
+    
     
     func settingsChanged(fromUnits: LengthUnit, toUnits: LengthUnit)
     {
         self.fromUnits.text = fromUnits.rawValue
         self.toUnits.text = toUnits.rawValue
+        
     }
     
     func settingsChanged(fromUnits: VolumeUnit, toUnits: VolumeUnit)

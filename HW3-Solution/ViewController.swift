@@ -144,9 +144,8 @@ class ViewController: CalculatorScreenViewController, SettingsViewControllerDele
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let dest = segue.destination as? SettingsViewController {
-            
-            //initializing variables in SettingsViewController
             if segue.identifier == "settingsSegue" {
                 
                 dest.mode = currentMode
@@ -161,7 +160,6 @@ class ViewController: CalculatorScreenViewController, SettingsViewControllerDele
             if segue.identifier == "historySegue" {
                 dest.historyDelegate = self
                 dest.entries = self.entries
-                //dest.mode = self.mode
             }
         }
     }

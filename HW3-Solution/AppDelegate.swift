@@ -8,14 +8,13 @@
 
 import UIKit
 
-let BACKGROUND_COLOR = UIColor.init(red: 0.5333, green: 0.8863, blue: 0.8706, alpha: 1) //A Shade of blue
+let BACKGROUND_COLOR = UIColor.init(red: 0.7333, green: 0.8941, blue: 0.9294, alpha: 1.0) //A Shade of blue
 let FOREGROUND_COLOR = UIColor.init(red: 0.3216, green: 0.102, blue: 0.6078, alpha: 1)  //A shade of purple
+
+let PICKER_COLOR = UIColor.init(red: 0.9294, green: 0.7333, blue: 0.8, alpha: 1.0)  //A shade of purple
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-
-
 
     var window: UIWindow?
 

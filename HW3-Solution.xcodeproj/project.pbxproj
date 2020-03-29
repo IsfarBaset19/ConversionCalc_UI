@@ -16,6 +16,7 @@
 		4F96D36B242FE3CF00B95B8F /* length.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F96D36A242FE3CF00B95B8F /* length.png */; };
 		4F96D36D242FE3F700B95B8F /* volume.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F96D36C242FE3F700B95B8F /* volume.png */; };
 		4F96D36F242FE48E00B95B8F /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F96D36E242FE48E00B95B8F /* HistoryTableViewCell.swift */; };
+		4F96D3712430345000B95B8F /* SettingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F96D3702430345000B95B8F /* SettingsPicker.swift */; };
 		9E1E65472142BF8800F4E8CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65462142BF8800F4E8CB /* AppDelegate.swift */; };
 		9E1E65492142BF8800F4E8CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65482142BF8800F4E8CB /* ViewController.swift */; };
 		9E1E654C2142BF8800F4E8CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E654A2142BF8800F4E8CB /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		4F96D36A242FE3CF00B95B8F /* length.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = length.png; sourceTree = "<group>"; };
 		4F96D36C242FE3F700B95B8F /* volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume.png; sourceTree = "<group>"; };
 		4F96D36E242FE48E00B95B8F /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		4F96D3702430345000B95B8F /* SettingsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPicker.swift; sourceTree = "<group>"; };
 		9E1E65432142BF8800F4E8CB /* HW3-Solution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW3-Solution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E1E65462142BF8800F4E8CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E1E65482142BF8800F4E8CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				4F96D368242FD47400B95B8F /* HistoryTableViewController.swift */,
 				4F96D36E242FE48E00B95B8F /* HistoryTableViewCell.swift */,
 				4F96D366242FD23600B95B8F /* Conversion.swift */,
+				4F96D3702430345000B95B8F /* SettingsPicker.swift */,
 				437EC7DA23F601FE004C3D7F /* CalculatorScreenLabel.swift */,
 				437EC7DC23F602A2004C3D7F /* CalculatorScreenButton.swift */,
 				437EC7DE23F60328004C3D7F /* CalculatorScreenUITextField.swift */,
@@ -302,6 +305,7 @@
 				9E1E65772142C53800F4E8CB /* UnitsAndModes.swift in Sources */,
 				9E1E65752142C38700F4E8CB /* DecimalMinusTextField.swift in Sources */,
 				437EC7DD23F602A2004C3D7F /* CalculatorScreenButton.swift in Sources */,
+				4F96D3712430345000B95B8F /* SettingsPicker.swift in Sources */,
 				437EC7DB23F601FE004C3D7F /* CalculatorScreenLabel.swift in Sources */,
 				4F96D36F242FE48E00B95B8F /* HistoryTableViewCell.swift in Sources */,
 				9E1E65492142BF8800F4E8CB /* ViewController.swift in Sources */,
@@ -484,13 +488,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6T3ET24GXR;
+				DEVELOPMENT_TEAM = 8CGZ45C965;
 				INFOPLIST_FILE = "HW3-Solution/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-Solution";
+				PRODUCT_BUNDLE_IDENTIFIER = IB19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -502,13 +506,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6T3ET24GXR;
+				DEVELOPMENT_TEAM = 8CGZ45C965;
 				INFOPLIST_FILE = "HW3-Solution/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-Solution";
+				PRODUCT_BUNDLE_IDENTIFIER = IB19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

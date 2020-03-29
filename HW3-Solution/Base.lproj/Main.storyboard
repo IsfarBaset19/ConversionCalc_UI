@@ -185,8 +185,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFg-Z4-4Nh">
-                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                            <pickerView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JFg-Z4-4Nh" customClass="SettingsPicker" customModule="HW3_Solution" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="221" width="414" height="287"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="s6F-TN-ppf"/>
                                 </constraints>

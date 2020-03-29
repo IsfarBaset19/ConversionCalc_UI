@@ -76,14 +76,13 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // use the historyDelegate to report back entry selected to the calculator scene
+        
         if let del = self.historyDelegate {
             if let conv = self.tableViewData?[indexPath.section].entries[indexPath.row] {
                 del.selectEntry(entry: conv)
             }
         }
         
-        // this pops to the calculator
         _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -105,7 +104,6 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
         var tmpEntries : Dictionary<String,[Conversion]> = [:]
         var tmpData: [(sectionHeader: String, entries: [Conversion])] = []
         
-        // partition into sections
         for entry in entries {
             
             let shortDate = entry.timestamp.short
@@ -116,8 +114,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
                 tmpEntries[shortDate] = [entry]
             }
         }
-        
-        // breakout into our preferred array format
+
         let keys = tmpEntries.keys
         for key in keys {
             if let val = tmpEntries[key] {
@@ -125,7 +122,6 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
             }
         }
         
-        // sort by increasing date.
         tmpData.sort { (v1, v2) -> Bool in
             if v1.sectionHeader < v2.sectionHeader {
                 return true
@@ -142,7 +138,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 }
 
 extension Double {
-    /// Rounds the double to decimal places value
+
     func roundTo(places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
